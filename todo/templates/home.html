@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="margin: 0;">To Do List</h3>
+
+        <!-- Anchor tag for the 'Add New Task' link -->
+        <a href="{% url 'add-task' %}" class="btn" style="color: #fff; background-color: #5C4033; padding: 5px 10px; text-decoration: none; border-radius: 5px;">
+            Add
+        </a>
+    </div>
+
+    <table class="table table-sm">
+        <tbody>
+            {% for task in tasks %}
+                <tr>
+                    <!-- Checkbox on the left -->
+                    <td style="text-align: left; padding: 8px;">
+                        <input type="checkbox" id="task-{{ task.id }}" />
+                    </td>
+                    <!-- Task content -->
+                    <td style="font-size: 14px; padding: 8px;">
+                        <div>{{ task.tasks }}</div>
+                    </td>
+                    <!-- Delete button on the right -->
+                    <td style="text-align: right; padding: 8px;">
+                        <form method="POST" action="{% url 'task-delete' task.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-link text-danger" title="Delete">
+                                X
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
+

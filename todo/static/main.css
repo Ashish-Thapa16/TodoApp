@@ -1,0 +1,103 @@
+body {
+    background-color: #f5f5dc; /* Light beige background */
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: #e3e0c9; /* Darker beige container */
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;          /* Takes up 80% of the width of the viewport */
+    max-width: 600px;    /* Reduced max width to 600px */
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-size: 14px;  /* Global font size for table */
+    border: none; /* Removed the table borders */
+}
+
+td {
+    padding: 4px 8px;  /* General padding for table cells */
+    vertical-align: middle; /* Align items vertically centered */
+}
+
+/* Decrease space between checkbox and task content */
+td:first-child {
+    padding-right: 2px; /* Decreased space to the right of the checkbox */
+    text-align: center;  /* Align the checkbox to the center horizontally */
+}
+
+/* Custom checkbox styling */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none; /* Remove default styling */
+    -moz-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #c2b280; /* Dark beige border */
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    background-color: #f5f5dc; /* Light beige background */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+}
+
+input[type="checkbox"]:checked {
+    background-color: #5f4b3a; /* Dark brown background when checked */
+    border-color: #5f4b3a; /* Dark brown border when checked */
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✔'; /* Unicode checkmark */
+    position: absolute;
+    top: 50%;
+    left: 50%;  /* Position checkmark at the center */
+    transform: translate(-50%, -50%); /* Center it both horizontally and vertically */
+    font-size: 12px;  /* Size of the checkmark */
+    color: white;  /* Color of the checkmark */
+}
+
+/* Ensure task text wraps within the container */
+td:nth-child(2) {
+    word-wrap: break-word;  /* Allows long words to break and wrap to the next line */
+    white-space: normal;    /* Ensures text wraps if it's too long */
+    max-width: 500px;  /* Set a max-width to avoid overflowing */
+}
+
+/* Style for the delete button */
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #dc3545; /* Bootstrap's danger color for the X button */
+    font-size: 18px;
+}
+
+button:hover {
+    color: #bb2d3b; /* Darker red on hover */
+}
+
+button.save-task-btn {
+    border: none;
+    background-color: #5C4033; /* Brown color */
+    color: white;  /* White text color */
+    font-size: 14px; /* Smaller font size */
+    padding: 6px 12px; /* Smaller padding */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+    width: auto;  /* Button width auto-adjusts to text */
+    margin-top: 10px; /* Space above the button */
+}
+
+button.save-task-btn:hover {
+    background-color: #4a3b2d; /* Slightly darker brown on hover */
+}
